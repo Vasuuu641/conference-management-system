@@ -11,22 +11,6 @@
             </PendingDiffInfo>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/vasu/conference_management/entity/Role.java">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/src/main/java/com/vasu/conference_management/entity/Role.java" />
-              <option name="updatedContent" value="package com.vasu.conference_management.entity;&#10;&#10;import jakarta.persistence.*;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;&#10;@Entity&#10;@Table(name = &quot;roles&quot;)&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class Role {&#10;    @Id&#10;    @GeneratedValue(strategy = GenerationType.IDENTITY)&#10;    private Long id;&#10;&#10;    @Column(name = &quot;role_name&quot;, nullable = false, unique = true)&#10;    private String roleName;&#10;&#10;    @Column(name = &quot;description&quot;)&#10;    private String description;&#10;}&#10;" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/vasu/conference_management/entity/User.java">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/src/main/java/com/vasu/conference_management/entity/User.java" />
-              <option name="updatedContent" value="package com.vasu.conference_management.entity;&#10;&#10;import jakarta.persistence.*;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;import org.hibernate.annotations.CreationTimestamp;&#10;import org.hibernate.annotations.UpdateTimestamp;&#10;&#10;import java.time.LocalDateTime;&#10;import java.util.HashSet;&#10;import java.util.Set;&#10;&#10;@Entity&#10;@Table(name = &quot;users&quot;)&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class User {&#10;    @Id&#10;    @GeneratedValue(strategy = GenerationType.IDENTITY)&#10;    private Long id;&#10;&#10;    @Column(name = &quot;username&quot;, nullable = false, unique = true)&#10;    private String username;&#10;&#10;    @Column(name = &quot;email&quot;, nullable = false, unique = true)&#10;    private String email;&#10;&#10;    @Column(name = &quot;password&quot;, nullable = false)&#10;    private String password;&#10;&#10;    @Column(name = &quot;first_name&quot;)&#10;    private String firstName;&#10;&#10;    @Column(name = &quot;last_name&quot;)&#10;    private String lastName;&#10;&#10;    @Column(name = &quot;enabled&quot;)&#10;    private Boolean enabled = true;&#10;&#10;    @CreationTimestamp&#10;    @Column(name = &quot;created_date&quot;, nullable = false, updatable = false)&#10;    private LocalDateTime createdDate;&#10;&#10;    @UpdateTimestamp&#10;    @Column(name = &quot;updated_date&quot;)&#10;    private LocalDateTime updatedDate;&#10;&#10;    // One-to-One relationship with UserProfile&#10;    @OneToOne(mappedBy = &quot;user&quot;, cascade = CascadeType.ALL, orphanRemoval = true)&#10;    private UserProfile userProfile;&#10;&#10;    // One-to-Many: Author -&gt; Papers&#10;    @OneToMany(mappedBy = &quot;author&quot;, cascade = CascadeType.ALL)&#10;    private Set&lt;Paper&gt; submittedPapers = new HashSet&lt;&gt;();&#10;&#10;    // Many-to-Many: User -&gt; Roles&#10;    @ManyToMany(fetch = FetchType.EAGER)&#10;    @JoinTable(&#10;            name = &quot;user_roles&quot;,&#10;            joinColumns = @JoinColumn(name = &quot;user_id&quot;),&#10;            inverseJoinColumns = @JoinColumn(name = &quot;role_id&quot;)&#10;    )&#10;    private Set&lt;Role&gt; roles = new HashSet&lt;&gt;();&#10;&#10;    // Many-to-Many: User (Reviewer) -&gt; Papers (as reviewer)&#10;    @ManyToMany(mappedBy = &quot;reviewers&quot;)&#10;    private Set&lt;Paper&gt; reviewingPapers = new HashSet&lt;&gt;();&#10;&#10;    // One-to-Many: User -&gt; Reviews&#10;    @OneToMany(mappedBy = &quot;reviewer&quot;, cascade = CascadeType.ALL)&#10;    private Set&lt;Review&gt; reviews = new HashSet&lt;&gt;();&#10;}&#10;" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
       </map>
     </option>
   </component>

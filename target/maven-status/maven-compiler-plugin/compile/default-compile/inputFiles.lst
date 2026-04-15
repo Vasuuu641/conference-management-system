@@ -1,1 +1,8 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/ConferenceManagementApplication.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Conference.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Paper.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Review.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Role.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Tag.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/User.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/UserProfile.java
