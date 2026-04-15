@@ -6,3 +6,10 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Tag.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/User.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/UserProfile.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/ConferenceRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/PaperRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/ReviewRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/RoleRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/TagRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserProfileRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserRepository.java
