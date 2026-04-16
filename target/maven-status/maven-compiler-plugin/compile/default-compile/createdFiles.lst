@@ -1,1 +1,17 @@
+com/vasu/conference_management/repository/PaperRepository.class
+com/vasu/conference_management/repository/ConferenceRepository.class
+com/vasu/conference_management/repository/ReviewRepository.class
 com/vasu/conference_management/ConferenceManagementApplication.class
+com/vasu/conference_management/entity/Conference$ConferenceStatus.class
+com/vasu/conference_management/entity/User.class
+com/vasu/conference_management/entity/Tag.class
+com/vasu/conference_management/entity/UserProfile.class
+com/vasu/conference_management/repository/RoleRepository.class
+com/vasu/conference_management/entity/Conference.class
+com/vasu/conference_management/repository/TagRepository.class
+com/vasu/conference_management/entity/Review.class
+com/vasu/conference_management/entity/Paper$PaperStatus.class
+com/vasu/conference_management/entity/Role.class
+com/vasu/conference_management/entity/Paper.class
+com/vasu/conference_management/repository/UserProfileRepository.class
+com/vasu/conference_management/repository/UserRepository.class
