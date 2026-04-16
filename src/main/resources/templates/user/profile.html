@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="top-nav">
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/conferences}">Conferences</a>
+    <a th:href="@{/papers}">Papers</a>
+</nav>
+
+<div class="container">
+    <h1>My Profile</h1>
+
+    <div class="card">
+        <p><strong>Username:</strong> <span th:text="${user.username}">username</span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}">email</span></p>
+        <p><strong>Name:</strong>
+            <span th:text="${user.firstName}">First</span>
+            <span th:text="${user.lastName}">Last</span>
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Profile Details</h2>
+        <p><strong>Affiliation:</strong> <span th:text="${profile.affiliation}">N/A</span></p>
+        <p><strong>Bio:</strong> <span th:text="${profile.bio}">N/A</span></p>
+        <p><strong>Phone:</strong> <span th:text="${profile.phone}">N/A</span></p>
+        <p><strong>Research Interests:</strong> <span th:text="${profile.researchInterests}">N/A</span></p>
+    </div>
+</div>
+</body>
+</html>
+

@@ -5,6 +5,7 @@ import com.vasu.conference_management.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -18,7 +19,8 @@ public class DataInitializer {
                                UserProfileRepository userProfileRepository,
                                ConferenceRepository conferenceRepository,
                                TagRepository tagRepository,
-                               PaperRepository paperRepository) {
+                               PaperRepository paperRepository,
+                               PasswordEncoder passwordEncoder) {
         return args -> {
             if (roleRepository.count() > 0) {
                 return;
@@ -31,7 +33,7 @@ public class DataInitializer {
             User admin = new User();
             admin.setUsername("admin");
             admin.setEmail("admin@conference.local");
-            admin.setPassword("admin123");
+            admin.setPassword(passwordEncoder.encode("admin123"));
             admin.setFirstName("System");
             admin.setLastName("Admin");
             admin.setRoles(Set.of(adminRole));
@@ -40,7 +42,7 @@ public class DataInitializer {
             User author = new User();
             author.setUsername("author1");
             author.setEmail("author1@conference.local");
-            author.setPassword("author123");
+            author.setPassword(passwordEncoder.encode("author123"));
             author.setFirstName("Alice");
             author.setLastName("Author");
             author.setRoles(Set.of(authorRole));
@@ -49,7 +51,7 @@ public class DataInitializer {
             User reviewer = new User();
             reviewer.setUsername("reviewer1");
             reviewer.setEmail("reviewer1@conference.local");
-            reviewer.setPassword("review123");
+            reviewer.setPassword(passwordEncoder.encode("review123"));
             reviewer.setFirstName("Bob");
             reviewer.setLastName("Reviewer");
             reviewer.setRoles(Set.of(reviewerRole));

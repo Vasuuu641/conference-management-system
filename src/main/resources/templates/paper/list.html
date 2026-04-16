@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papers</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="top-nav">
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/conferences}">Conferences</a>
+    <a th:href="@{/papers}">Papers</a>
+</nav>
+
+<div class="container">
+    <h1>Papers</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Conference</th>
+            <th>Status</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="paper : ${papers}">
+            <td th:text="${paper.title}">Paper title</td>
+            <td th:text="${paper.conference.title}">Conference</td>
+            <td th:text="${paper.status}">SUBMITTED</td>
+            <td th:text="${paper.author.username}">author</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

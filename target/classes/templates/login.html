@@ -4,12 +4,16 @@
     <title>Login - Conference Management</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="login-container">
     <h1>Conference Management System</h1>
     <h2>User Login</h2>
+
+    <div th:if="${message}" class="alert alert-success">
+        <span th:text="${message}">Info message</span>
+    </div>
 
     <!-- Error message display -->
     <div th:if="${error}" class="alert alert-danger">
@@ -17,7 +21,7 @@
     </div>
 
     <!-- Login form -->
-    <form method="POST" th:action="@{/api/auth/login}">
+    <form method="POST" th:action="@{/login}">
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required autofocus>
@@ -34,7 +38,6 @@
     <!-- Links -->
     <div class="login-links">
         <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
-        <p><a th:href="@{/forgot-password}">Forgot password?</a></p>
     </div>
 </div>
 </body>

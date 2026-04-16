@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="top-nav">
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/conferences}">Conferences</a>
+    <a th:href="@{/papers}">Papers</a>
+    <a th:href="@{/user/profile}">Profile</a>
+    <form method="post" th:action="@{/logout}">
+        <button type="submit" class="btn btn-link">Logout</button>
+    </form>
+</nav>
+
+<div class="container">
+    <h1>Welcome, <span th:text="${#authentication.name}">user</span></h1>
+
+    <div class="stats-grid">
+        <div class="card">
+            <h3>Total Conferences</h3>
+            <p th:text="${stats.totalConferences}">0</p>
+        </div>
+        <div class="card">
+            <h3>Total Papers</h3>
+            <p th:text="${stats.totalPapers}">0</p>
+        </div>
+        <div class="card">
+            <h3>Acceptance Rate</h3>
+            <p><span th:text="${stats.acceptanceRate}">0</span>%</p>
+        </div>
+    </div>
+
+    <div sec:authorize="hasRole('ADMIN')" class="card">
+        <h2>User Stats</h2>
+        <p>Total: <span th:text="${stats.userStats.totalUsers}">0</span></p>
+        <p>Authors: <span th:text="${stats.userStats.authorCount}">0</span></p>
+        <p>Reviewers: <span th:text="${stats.userStats.reviewerCount}">0</span></p>
+        <p>Admins: <span th:text="${stats.userStats.adminCount}">0</span></p>
+    </div>
+</div>
+</body>
+</html>
+

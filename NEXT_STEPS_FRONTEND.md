@@ -133,7 +133,6 @@ Your authentication backend is production-ready. Now it's time to build the user
 package com.vasu.conference_management.controller;
 
 import com.vasu.conference_management.dto.RegisterRequest;
-import com.vasu.conference_management.entity.User;
 import com.vasu.conference_management.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -144,52 +143,52 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    
-    @Autowired
-    private UserService userService;
-    
-    @GetMapping("/profile")
-    public String getProfile(Authentication auth, Model model) {
-        // Redirect to login if not authenticated
-        if (auth == null || !auth.isAuthenticated()) {
-            return "redirect:/login";
-        }
-        
-        // Get current user from context
-        String username = auth.getName();
-        // Fetch user from database if needed
-        
-        return "user/profile";
-    }
-    
-    @PostMapping("/register")
-    public String registerUser(@ModelAttribute RegisterRequest request, Model model) {
-        try {
-            userService.register(request);
-            return "redirect:/login?registered=true";
-        } catch (IllegalStateException e) {
-            model.addAttribute("error", e.getMessage());
-            return "register";
-        }
-    }
-    
-    @PostMapping("/profile/update")
-    public String updateProfile(Authentication auth, 
-                                @RequestParam String firstName,
-                                @RequestParam String lastName,
-                                Model model) {
-        if (auth == null || !auth.isAuthenticated()) {
-            return "redirect:/login";
-        }
-        
-        try {
-            // Update user profile
-            return "redirect:/user/profile?updated=true";
-        } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-            return "user/profile";
-        }
-    }
+
+   @Autowired
+   private UserService userService;
+
+   @GetMapping("/profile")
+   public String getProfile(Authentication auth, Model model) {
+      // Redirect to login if not authenticated
+      if (auth == null || !auth.isAuthenticated()) {
+         return "redirect:/login";
+      }
+
+      // Get current user from context
+      String username = auth.getName();
+      // Fetch user from database if needed
+
+      return "user/profile";
+   }
+
+   @PostMapping("/register")
+   public String registerUser(@ModelAttribute RegisterRequest request, Model model) {
+      try {
+         userService.register(request);
+         return "redirect:/login?registered=true";
+      } catch (IllegalStateException e) {
+         model.addAttribute("error", e.getMessage());
+         return "register";
+      }
+   }
+
+   @PostMapping("/profile/update")
+   public String updateProfile(Authentication auth,
+                               @RequestParam String firstName,
+                               @RequestParam String lastName,
+                               Model model) {
+      if (auth == null || !auth.isAuthenticated()) {
+         return "redirect:/login";
+      }
+
+      try {
+         // Update user profile
+         return "redirect:/user/profile?updated=true";
+      } catch (Exception e) {
+         model.addAttribute("error", e.getMessage());
+         return "user/profile";
+      }
+   }
 }
 ```
 

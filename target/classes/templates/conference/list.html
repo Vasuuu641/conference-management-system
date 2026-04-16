@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferences</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="top-nav">
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/conferences}">Conferences</a>
+    <a th:href="@{/papers}">Papers</a>
+</nav>
+
+<div class="container">
+    <h1>Conferences</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Submission Deadline</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="conference : ${conferences}">
+            <td th:text="${conference.title}">Conference</td>
+            <td th:text="${conference.status}">OPEN</td>
+            <td th:text="${conference.submissionDeadline}">date</td>
+            <td th:text="${conference.location}">location</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

@@ -5,6 +5,7 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/AuthController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/ConferenceController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/DashboardController.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/PageController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/PaperController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/ReviewController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/SearchController.java
@@ -15,6 +16,7 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/CreateConferenceRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/DashboardStatsDto.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/LoginRequest.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/RegisterRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/SubmitPaperRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/SubmitReviewRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/UserStatsDto.java
@@ -32,6 +34,7 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/TagRepository.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserProfileRepository.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserRepository.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/security/DatabaseUserDetailsService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/AuthService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/ConferenceService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/DashboardService.java
