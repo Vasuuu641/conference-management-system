@@ -51,18 +51,18 @@ public class PaperController {
     }
 
     private Map<String, Object> toResponse(Paper paper) {
-        return Map.of(
-                "id", paper.getId(),
-                "title", paper.getTitle(),
-                "status", paper.getStatus(),
-                "decision", paper.getDecision() == null ? "PENDING" : paper.getDecision(),
-                "conferenceId", paper.getConference().getId(),
-                "conferenceTitle", paper.getConference().getTitle(),
-                "authorId", paper.getAuthor().getId(),
-                "authorUsername", paper.getAuthor().getUsername(),
-                "submissionDate", paper.getSubmissionDate(),
-                "tags", paper.getTags().stream().map(tag -> tag.getTagName()).toList(),
-                "reviewerIds", paper.getReviewers().stream().map(reviewer -> reviewer.getId()).toList()
+        return Map.ofEntries(
+                Map.entry("id", paper.getId()),
+                Map.entry("title", paper.getTitle()),
+                Map.entry("status", paper.getStatus()),
+                Map.entry("decision", paper.getDecision() == null ? "PENDING" : paper.getDecision()),
+                Map.entry("conferenceId", paper.getConference().getId()),
+                Map.entry("conferenceTitle", paper.getConference().getTitle()),
+                Map.entry("authorId", paper.getAuthor().getId()),
+                Map.entry("authorUsername", paper.getAuthor().getUsername()),
+                Map.entry("submissionDate", paper.getSubmissionDate()),
+                Map.entry("tags", paper.getTags().stream().map(tag -> tag.getTagName()).toList()),
+                Map.entry("reviewerIds", paper.getReviewers().stream().map(reviewer -> reviewer.getId()).toList())
         );
     }
 }

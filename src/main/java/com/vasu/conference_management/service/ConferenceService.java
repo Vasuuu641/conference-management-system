@@ -3,6 +3,7 @@ package com.vasu.conference_management.service;
 import com.vasu.conference_management.dto.CreateConferenceRequest;
 import com.vasu.conference_management.entity.Conference;
 import com.vasu.conference_management.repository.ConferenceRepository;
+import com.vasu.conference_management.util.DateUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,13 @@ public class ConferenceService {
 
     @Transactional
     public Conference createConference(CreateConferenceRequest request) {
+        DateUtil.validateConferenceTimeline(
+                request.getStartDate(),
+                request.getEndDate(),
+                request.getSubmissionDeadline(),
+                request.getNotificationDate()
+        );
+
         Conference conference = new Conference();
         conference.setTitle(request.getTitle());
         conference.setDescription(request.getDescription());

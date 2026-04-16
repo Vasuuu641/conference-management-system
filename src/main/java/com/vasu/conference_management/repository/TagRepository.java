@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
     Optional<Tag> findByTagName(String tagName);
+    Optional<Tag> findByTagNameIgnoreCase(String tagName);
+    boolean existsByTagNameIgnoreCase(String tagName);
     List<Tag> findByTagNameContainingIgnoreCase(String tagName);
 }
 

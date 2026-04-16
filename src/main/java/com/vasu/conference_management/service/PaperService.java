@@ -9,6 +9,9 @@ import com.vasu.conference_management.repository.ConferenceRepository;
 import com.vasu.conference_management.repository.PaperRepository;
 import com.vasu.conference_management.repository.TagRepository;
 import com.vasu.conference_management.repository.UserRepository;
+import com.vasu.conference_management.util.DateUtil;
+import com.vasu.conference_management.util.FileUploadUtil;
+import com.vasu.conference_management.util.ValidationUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,16 +38,24 @@ public class PaperService {
 
     @Transactional
     public Paper submitPaper(SubmitPaperRequest request) {
+        ValidationUtil.requirePositiveId(request.getConferenceId(), "conferenceId");
+        ValidationUtil.requirePositiveId(request.getAuthorId(), "authorId");
+        ValidationUtil.requireNonEmpty(request.getTagIds(), "tagIds");
+
         Paper paper = new Paper();
         paper.setTitle(request.getTitle());
         paper.setAbstractText(request.getAbstractText());
-        paper.setFilePath(request.getFilePath());
+        paper.setFilePath(FileUploadUtil.validateAndNormalizePaperPath(request.getFilePath()));
         paper.setKeywords(request.getKeywords());
         paper.setStatus(Paper.PaperStatus.SUBMITTED);
         paper.setDecision("PENDING");
 
-        paper.setConference(conferenceRepository.findById(request.getConferenceId())
-                .orElseThrow(() -> new IllegalArgumentException("Conference not found: " + request.getConferenceId())));
+        var conference = conferenceRepository.findById(request.getConferenceId())
+                .orElseThrow(() -> new IllegalArgumentException("Conference not found: " + request.getConferenceId()));
+        if (!DateUtil.isSubmissionWindowOpen(conference.getSubmissionDeadline())) {
+            throw new IllegalStateException("Submission deadline has passed for this conference");
+        }
+        paper.setConference(conference);
 
         paper.setAuthor(userRepository.findById(request.getAuthorId())
                 .orElseThrow(() -> new IllegalArgumentException("Author not found: " + request.getAuthorId())));
@@ -60,6 +71,9 @@ public class PaperService {
 
     @Transactional
     public Paper assignReviewer(AssignReviewerRequest request) {
+        ValidationUtil.requirePositiveId(request.getPaperId(), "paperId");
+        ValidationUtil.requirePositiveId(request.getReviewerId(), "reviewerId");
+
         Paper paper = paperRepository.findById(request.getPaperId())
                 .orElseThrow(() -> new IllegalArgumentException("Paper not found: " + request.getPaperId()));
 

@@ -32,7 +32,7 @@ public class UserProfile {
 
     // One-to-One relationship with User
     @OneToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 }
 
