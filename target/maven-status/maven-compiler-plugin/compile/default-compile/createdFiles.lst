@@ -1,3 +1,4 @@
+com/vasu/conference_management/controller/AuthController.class
 com/vasu/conference_management/dto/SubmitPaperRequest.class
 com/vasu/conference_management/dto/CreateConferenceRequest.class
 com/vasu/conference_management/controller/ReviewController.class
@@ -20,9 +21,13 @@ com/vasu/conference_management/service/UserService.class
 com/vasu/conference_management/repository/PaperRepository.class
 com/vasu/conference_management/repository/ConferenceRepository.class
 com/vasu/conference_management/dto/ConferenceSubmissionStatsDto.class
+com/vasu/conference_management/controller/DashboardController.class
 com/vasu/conference_management/controller/ConferenceController.class
+com/vasu/conference_management/dto/AuthResponse.class
 com/vasu/conference_management/service/TagService.class
 com/vasu/conference_management/entity/Tag.class
+com/vasu/conference_management/service/AuthService.class
+com/vasu/conference_management/dto/LoginRequest.class
 com/vasu/conference_management/dto/AssignReviewerRequest.class
 com/vasu/conference_management/util/FileUploadUtil.class
 com/vasu/conference_management/repository/RoleRepository.class
