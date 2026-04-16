@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 @Service
@@ -114,5 +115,64 @@ public class PaperService {
     @Transactional(readOnly = true)
     public List<Paper> findByStatus(Paper.PaperStatus status) {
         return paperRepository.findByStatus(status);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Paper> findByAuthor(Long authorId) {
+        ValidationUtil.requirePositiveId(authorId, "authorId");
+        userRepository.findById(authorId)
+                .orElseThrow(() -> new IllegalArgumentException("Author not found: " + authorId));
+        return paperRepository.findByAuthorId(authorId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Paper> searchPapers(String title,
+                                    Long conferenceId,
+                                    Paper.PaperStatus status,
+                                    String topic,
+                                    Long authorId) {
+        List<Paper> papers = paperRepository.findAll();
+
+        if (conferenceId != null) {
+            ValidationUtil.requirePositiveId(conferenceId, "conferenceId");
+            conferenceRepository.findById(conferenceId)
+                    .orElseThrow(() -> new IllegalArgumentException("Conference not found: " + conferenceId));
+            papers = papers.stream()
+                    .filter(paper -> conferenceId.equals(paper.getConference().getId()))
+                    .toList();
+        }
+
+        if (status != null) {
+            papers = papers.stream()
+                    .filter(paper -> status == paper.getStatus())
+                    .toList();
+        }
+
+        if (authorId != null) {
+            ValidationUtil.requirePositiveId(authorId, "authorId");
+            userRepository.findById(authorId)
+                    .orElseThrow(() -> new IllegalArgumentException("Author not found: " + authorId));
+            papers = papers.stream()
+                    .filter(paper -> authorId.equals(paper.getAuthor().getId()))
+                    .toList();
+        }
+
+        if (title != null && !title.isBlank()) {
+            String normalizedTitle = title.trim().toLowerCase(Locale.ROOT);
+            papers = papers.stream()
+                    .filter(paper -> paper.getTitle() != null
+                            && paper.getTitle().toLowerCase(Locale.ROOT).contains(normalizedTitle))
+                    .toList();
+        }
+
+        if (topic != null && !topic.isBlank()) {
+            String normalizedTopic = topic.trim().toLowerCase(Locale.ROOT);
+            papers = papers.stream()
+                    .filter(paper -> paper.getTags().stream().anyMatch(tag -> tag.getTagName() != null
+                            && tag.getTagName().toLowerCase(Locale.ROOT).contains(normalizedTopic)))
+                    .toList();
+        }
+
+        return papers;
     }
 }

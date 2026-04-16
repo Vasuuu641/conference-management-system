@@ -7,6 +7,8 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/DashboardController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/PaperController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/ReviewController.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/SearchController.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/UserController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/AssignReviewerRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/AuthResponse.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/ConferenceSubmissionStatsDto.java

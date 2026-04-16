@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -110,6 +111,12 @@ public class UserService {
         user.setUserProfile(existingProfile);
         User savedUser = userRepository.save(user);
         return savedUser.getUserProfile();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<UserProfile> findProfileByUserId(Long userId) {
+        ValidationUtil.requirePositiveId(userId, "userId");
+        return userProfileRepository.findByUserId(userId);
     }
 }
 

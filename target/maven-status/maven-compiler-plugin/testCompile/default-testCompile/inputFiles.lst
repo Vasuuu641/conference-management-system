@@ -1,6 +1,8 @@
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/ConferenceManagementApplicationTests.java
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/controller/AuthControllerTests.java
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/controller/DashboardControllerTests.java
+/home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/controller/SearchControllerTests.java
+/home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/controller/UserControllerTests.java
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/service/AuthServiceTests.java
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/service/DashboardServiceTests.java
 /home/vasu/Downloads/conference-management/src/test/java/com/vasu/conference_management/service/TagServiceTests.java

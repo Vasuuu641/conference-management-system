@@ -1,10 +1,12 @@
-com/vasu/conference_management/util/FileUploadUtilTest.class
-com/vasu/conference_management/service/UserServiceTests.class
 com/vasu/conference_management/service/TagServiceTests.class
-com/vasu/conference_management/util/DateUtilTest.class
-com/vasu/conference_management/ConferenceManagementApplicationTests.class
 com/vasu/conference_management/service/AuthServiceTests.class
 com/vasu/conference_management/service/DashboardServiceTests.class
-com/vasu/conference_management/controller/AuthControllerTests.class
 com/vasu/conference_management/controller/DashboardControllerTests.class
 com/vasu/conference_management/util/ValidationUtilTest.class
+com/vasu/conference_management/util/FileUploadUtilTest.class
+com/vasu/conference_management/controller/SearchControllerTests.class
+com/vasu/conference_management/controller/UserControllerTests.class
+com/vasu/conference_management/service/UserServiceTests.class
+com/vasu/conference_management/util/DateUtilTest.class
+com/vasu/conference_management/ConferenceManagementApplicationTests.class
+com/vasu/conference_management/controller/AuthControllerTests.class
