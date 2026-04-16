@@ -7,6 +7,7 @@ import com.vasu.conference_management.entity.User;
 import com.vasu.conference_management.repository.PaperRepository;
 import com.vasu.conference_management.repository.ReviewRepository;
 import com.vasu.conference_management.repository.UserRepository;
+import com.vasu.conference_management.util.ValidationUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +29,9 @@ public class ReviewService {
 
     @Transactional
     public Review submitReview(SubmitReviewRequest request) {
+        ValidationUtil.requirePositiveId(request.getPaperId(), "paperId");
+        ValidationUtil.requirePositiveId(request.getReviewerId(), "reviewerId");
+
         Paper paper = paperRepository.findById(request.getPaperId())
                 .orElseThrow(() -> new IllegalArgumentException("Paper not found: " + request.getPaperId()));
 
@@ -49,7 +53,7 @@ public class ReviewService {
         review.setReviewer(reviewer);
         review.setScore(request.getScore());
         review.setComments(request.getComments());
-        review.setRecommendation(request.getRecommendation());
+        review.setRecommendation(ValidationUtil.normalizeRecommendation(request.getRecommendation()));
         review.setConfidenceLevel(request.getConfidenceLevel());
 
         return reviewRepository.save(review);
