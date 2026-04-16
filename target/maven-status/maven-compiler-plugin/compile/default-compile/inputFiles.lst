@@ -6,9 +6,12 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/PaperController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/controller/ReviewController.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/AssignReviewerRequest.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/ConferenceSubmissionStatsDto.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/CreateConferenceRequest.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/DashboardStatsDto.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/SubmitPaperRequest.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/SubmitReviewRequest.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/dto/UserStatsDto.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Conference.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Paper.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/entity/Review.java
@@ -24,6 +27,7 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserProfileRepository.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/repository/UserRepository.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/ConferenceService.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/DashboardService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/PaperService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/ReviewService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/TagService.java

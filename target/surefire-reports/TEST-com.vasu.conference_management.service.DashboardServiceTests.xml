@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.util.FileUploadUtilTest" time="0.011" tests="3" errors="0" skipped="0" failures="0" flakes="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.service.DashboardServiceTests" time="0.32" tests="2" errors="0" skipped="0" failures="0" flakes="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -60,7 +60,598 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="generateStoredFilename_keepsExtension" classname="com.vasu.conference_management.util.FileUploadUtilTest" time="0.004"/>
-  <testcase name="validateAndNormalizePaperPath_acceptsSupportedExtension" classname="com.vasu.conference_management.util.FileUploadUtilTest" time="0.002"/>
-  <testcase name="validateAndNormalizePaperPath_rejectsTraversal" classname="com.vasu.conference_management.util.FileUploadUtilTest" time="0.001"/>
+  <testcase name="getDashboardStatsAggregatesGlobalAndConferenceMetrics" classname="com.vasu.conference_management.service.DashboardServiceTests" time="0.227">
+    <system-out><![CDATA[2026-04-16T09:47:10.415+02:00  INFO 16172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.DashboardServiceTests]: DashboardServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:47:10.416+02:00  INFO 16172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.DashboardServiceTests
+2026-04-16T09:47:10.418+02:00  INFO 16172 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.DashboardServiceTests]: DashboardServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:47:10.419+02:00  INFO 16172 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.DashboardServiceTests
+Hibernate: 
+    select
+        count(*) 
+    from
+        conferences c1_0
+Hibernate: 
+    select
+        count(*) 
+    from
+        papers p1_0
+Hibernate: 
+    select
+        count(u1_0.id) 
+    from
+        users u1_0
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        tags
+        (description, tag_name) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        conferences
+        (created_date, description, end_date, location, notification_date, start_date, status, submission_deadline, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        papers
+        (abstract_text, author_id, conference_id, decision, file_path, keywords, status, submission_date, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        papers
+        (abstract_text, author_id, conference_id, decision, file_path, keywords, status, submission_date, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        papers
+        (abstract_text, author_id, conference_id, decision, file_path, keywords, status, submission_date, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        papers
+        (abstract_text, author_id, conference_id, decision, file_path, keywords, status, submission_date, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        count(*) 
+    from
+        conferences c1_0
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        paper_tags
+        (paper_id, tag_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        paper_tags
+        (paper_id, tag_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        paper_tags
+        (paper_id, tag_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        paper_tags
+        (paper_id, tag_id) 
+    values
+        (?, ?)
+Hibernate: 
+    select
+        count(*) 
+    from
+        papers p1_0
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.status=?
+Hibernate: 
+    select
+        count(u1_0.id) 
+    from
+        users u1_0
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        count(distinct u1_0.id) 
+    from
+        users u1_0 
+    join
+        user_roles r1_0 
+            on u1_0.id=r1_0.user_id 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        upper(r1_1.role_name)=upper(?)
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.created_date,
+        c1_0.description,
+        c1_0.end_date,
+        c1_0.location,
+        c1_0.notification_date,
+        c1_0.start_date,
+        c1_0.status,
+        c1_0.submission_deadline,
+        c1_0.title,
+        c1_0.updated_date 
+    from
+        conferences c1_0
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+]]></system-out>
+  </testcase>
+  <testcase name="getConferenceStatsReturnsStatsForSavedConference" classname="com.vasu.conference_management.service.DashboardServiceTests" time="0.078">
+    <system-out><![CDATA[Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        tags
+        (description, tag_name) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        conferences
+        (created_date, description, end_date, location, notification_date, start_date, status, submission_deadline, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        papers
+        (abstract_text, author_id, conference_id, decision, file_path, keywords, status, submission_date, title, updated_date) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.created_date,
+        c1_0.description,
+        c1_0.end_date,
+        c1_0.location,
+        c1_0.notification_date,
+        c1_0.start_date,
+        c1_0.status,
+        c1_0.submission_deadline,
+        c1_0.title,
+        c1_0.updated_date 
+    from
+        conferences c1_0
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        paper_tags
+        (paper_id, tag_id) 
+    values
+        (?, ?)
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        papers p1_0 
+    where
+        p1_0.conference_id=? 
+        and p1_0.status=?
+]]></system-out>
+  </testcase>
 </testsuite>
