@@ -13,12 +13,16 @@ import java.util.Optional;
 @Repository
 public interface PaperRepository extends JpaRepository<Paper, Long> {
     List<Paper> findByConference(Conference conference);
+    List<Paper> findByConferenceId(Long conferenceId);
     List<Paper> findByAuthor(User author);
+    List<Paper> findByAuthorId(Long authorId);
     List<Paper> findByStatus(PaperStatus status);
     List<Paper> findByConferenceAndStatus(Conference conference, PaperStatus status);
+    List<Paper> findByConferenceIdAndStatus(Long conferenceId, PaperStatus status);
     List<Paper> findByTitleContainingIgnoreCase(String title);
     List<Paper> findByAuthorAndConference(User author, Conference conference);
     List<Paper> findByReviewersContaining(User reviewer);
+    List<Paper> findByTags_TagNameContainingIgnoreCase(String tagName);
     long countByConference(Conference conference);
     long countByConferenceAndStatus(Conference conference, PaperStatus status);
 }

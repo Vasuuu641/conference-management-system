@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface ConferenceRepository extends JpaRepository<Conference, Long> {
     List<Conference> findByStatus(ConferenceStatus status);
+    List<Conference> findByStatusAndTitleContainingIgnoreCase(ConferenceStatus status, String title);
     List<Conference> findByStartDateAfter(LocalDateTime date);
     List<Conference> findBySubmissionDeadlineAfter(LocalDateTime date);
     Optional<Conference> findByTitle(String title);
