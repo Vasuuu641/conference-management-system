@@ -26,6 +26,8 @@
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/ConferenceService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/PaperService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/ReviewService.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/TagService.java
+/home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/service/UserService.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/util/DateUtil.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/util/FileUploadUtil.java
 /home/vasu/Downloads/conference-management/src/main/java/com/vasu/conference_management/util/ValidationUtil.java

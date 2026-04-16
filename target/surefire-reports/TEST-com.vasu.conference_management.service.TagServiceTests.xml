@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.util.ValidationUtilTest" time="0.02" tests="4" errors="0" skipped="0" failures="0" flakes="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.service.TagServiceTests" time="0.137" tests="3" errors="0" skipped="0" failures="0" flakes="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -60,8 +60,83 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="normalizeRecommendation_rejectsUnknownValue" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.003"/>
-  <testcase name="requireNonEmpty_rejectsEmptyCollection" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.002"/>
-  <testcase name="requirePositiveId_rejectsInvalidValue" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.006"/>
-  <testcase name="normalizeRecommendation_standardizesValues" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.002"/>
+  <testcase name="createTagRejectsDuplicateIgnoringCase" classname="com.vasu.conference_management.service.TagServiceTests" time="0.042">
+    <system-out><![CDATA[2026-04-16T09:31:04.398+02:00  INFO 14766 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.TagServiceTests]: TagServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:31:04.404+02:00  INFO 14766 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.TagServiceTests
+2026-04-16T09:31:04.413+02:00  INFO 14766 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.TagServiceTests]: TagServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:31:04.415+02:00  INFO 14766 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.TagServiceTests
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        tags
+        (description, tag_name) 
+    values
+        (?, ?)
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+]]></system-out>
+  </testcase>
+  <testcase name="findByNameReturnsStoredTag" classname="com.vasu.conference_management.service.TagServiceTests" time="0.038">
+    <system-out><![CDATA[Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        tags
+        (description, tag_name) 
+    values
+        (?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.tag_name 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?)
+]]></system-out>
+  </testcase>
+  <testcase name="createTagStoresNewTag" classname="com.vasu.conference_management.service.TagServiceTests" time="0.021">
+    <system-out><![CDATA[Hibernate: 
+    select
+        t1_0.id 
+    from
+        tags t1_0 
+    where
+        upper(t1_0.tag_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        tags
+        (description, tag_name) 
+    values
+        (?, ?)
+]]></system-out>
+  </testcase>
 </testsuite>

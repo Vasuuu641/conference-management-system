@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.util.ValidationUtilTest" time="0.02" tests="4" errors="0" skipped="0" failures="0" flakes="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.vasu.conference_management.service.UserServiceTests" time="0.358" tests="3" errors="0" skipped="0" failures="0" flakes="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -60,8 +60,161 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="normalizeRecommendation_rejectsUnknownValue" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.003"/>
-  <testcase name="requireNonEmpty_rejectsEmptyCollection" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.002"/>
-  <testcase name="requirePositiveId_rejectsInvalidValue" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.006"/>
-  <testcase name="normalizeRecommendation_standardizesValues" classname="com.vasu.conference_management.util.ValidationUtilTest" time="0.002"/>
+  <testcase name="registerRejectsDuplicateUsername" classname="com.vasu.conference_management.service.UserServiceTests" time="0.255">
+    <system-out><![CDATA[2026-04-16T09:31:04.037+02:00  INFO 14766 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.UserServiceTests]: UserServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:31:04.052+02:00  INFO 14766 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.UserServiceTests
+2026-04-16T09:31:04.053+02:00  INFO 14766 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.vasu.conference_management.service.UserServiceTests]: UserServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-16T09:31:04.056+02:00  INFO 14766 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.vasu.conference_management.ConferenceManagementApplication for test class com.vasu.conference_management.service.UserServiceTests
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+]]></system-out>
+  </testcase>
+  <testcase name="upsertProfileLinksProfileToUser" classname="com.vasu.conference_management.service.UserServiceTests" time="0.05">
+    <system-out><![CDATA[Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        up1_0.id,
+        up1_0.affiliation,
+        up1_0.bio,
+        up1_0.phone,
+        up1_0.photo_url,
+        up1_0.research_interests,
+        up1_0.user_id 
+    from
+        user_profiles up1_0 
+    where
+        up1_0.user_id=?
+Hibernate: 
+    insert 
+    into
+        user_profiles
+        (affiliation, bio, phone, photo_url, research_interests, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        up1_0.id,
+        up1_0.affiliation,
+        up1_0.bio,
+        up1_0.phone,
+        up1_0.photo_url,
+        up1_0.research_interests,
+        up1_0.user_id 
+    from
+        user_profiles up1_0 
+    where
+        up1_0.user_id=?
+]]></system-out>
+  </testcase>
+  <testcase name="registerCreatesUserWithRole" classname="com.vasu.conference_management.service.UserServiceTests" time="0.019">
+    <system-out><![CDATA[Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.description,
+        r1_0.role_name 
+    from
+        roles r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        users
+        (created_date, email, enabled, first_name, last_name, password, updated_date, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -14,9 +14,11 @@ com/vasu/conference_management/repository/TagRepository.class
 com/vasu/conference_management/entity/Review.class
 com/vasu/conference_management/entity/Paper.class
 com/vasu/conference_management/config/DataInitializer.class
+com/vasu/conference_management/service/UserService.class
 com/vasu/conference_management/repository/PaperRepository.class
 com/vasu/conference_management/repository/ConferenceRepository.class
 com/vasu/conference_management/controller/ConferenceController.class
+com/vasu/conference_management/service/TagService.class
 com/vasu/conference_management/entity/Tag.class
 com/vasu/conference_management/dto/AssignReviewerRequest.class
 com/vasu/conference_management/util/FileUploadUtil.class
